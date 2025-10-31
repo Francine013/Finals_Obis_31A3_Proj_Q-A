@@ -1,0 +1,39 @@
+﻿@{
+    ViewData["Title"] = "Home";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome to Q&A Board</h1>
+    <p class="lead">Ask questions, get answers, and share knowledge with the community.</p>
+
+    <div class="mt-4">
+        @if (User.Identity.IsAuthenticated)
+        {
+            <a asp-controller="Question" asp-action="Create" class="btn btn-primary btn-lg">Ask a Question</a>
+            <a asp-controller="Question" asp-action="Index" class="btn btn-outline-primary btn-lg">Browse Questions</a>
+        }
+        else
+        {
+            <a asp-controller="Account" asp-action="Register" class="btn btn-primary btn-lg">Get Started</a>
+            <a asp-controller="Question" asp-action="Index" class="btn btn-outline-primary btn-lg">Browse Questions</a>
+        }
+    </div>
+
+    <div class="mt-5">
+        <h3>How it works</h3>
+        <div class="row mt-4">
+            <div class="col-md-4">
+                <h4>1. Ask</h4>
+                <p>Post your questions and get help from the community</p>
+            </div>
+            <div class="col-md-4">
+                <h4>2. Answer</h4>
+                <p>Share your knowledge by answering questions</p>
+            </div>
+            <div class="col-md-4">
+                <h4>3. Vote</h4>
+                <p>Upvote the best answers to help others</p>
+            </div>
+        </div>
+    </div>
+</div>
