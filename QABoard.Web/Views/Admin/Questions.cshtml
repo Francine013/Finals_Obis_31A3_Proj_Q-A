@@ -1,0 +1,47 @@
+﻿@* @page
+@model QABoard.Web.Views.Admin.QuestionModel
+@{
+}
+ *@
+@model List<QABoard.Infrastructure.Entities.Question>
+@{
+    ViewData["Title"] = "Manage Questions";
+}
+
+<h2>Manage Questions</h2>
+<hr />
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Title</th>
+            <th>Author</th>
+            <th>Created At</th>
+            <th>Answers</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var question in Model)
+        {
+            <tr>
+                <td>
+                    <a asp-controller="Question" asp-action="Details" asp-route-id="@question.Id">
+                        @question.Title
+                    </a>
+                </td>
+                <td>@question.User.FullName</td>
+                <td>@question.CreatedAt.ToString("MMM dd, yyyy")</td>
+                <td>@question.Answers.Count</td>
+                <td>
+                    <form asp-action="DeleteQuestion" asp-route-id="@question.Id" method="post" class="d-inline"
+                          onsubmit="return confirm('Delete this question and all its answers?');">
+                        <button type="submit" class="btn btn-sm btn-danger">Delete</button>
+                    </form>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<a asp-action="Dashboard" class="btn btn-secondary">Back to Dashboard</a>

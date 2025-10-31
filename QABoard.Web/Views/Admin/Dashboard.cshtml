@@ -1,0 +1,59 @@
+﻿@* @page
+@model QABoard.Web.Views.Admin.DashboardModel
+@{
+}
+ *@
+
+@{
+    ViewData["Title"] = "Admin Dashboard";
+}
+
+<h2>Admin Dashboard</h2>
+<hr />
+
+<div class="row">
+    <div class="col-md-3">
+        <div class="card text-white bg-primary mb-3">
+            <div class="card-body">
+                <h5 class="card-title">Total Questions</h5>
+                <h2>@ViewBag.TotalQuestions</h2>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="card text-white bg-success mb-3">
+            <div class="card-body">
+                <h5 class="card-title">Total Answers</h5>
+                <h2>@ViewBag.TotalAnswers</h2>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="card text-white bg-info mb-3">
+            <div class="card-body">
+                <h5 class="card-title">Total Users</h5>
+                <h2>@ViewBag.TotalUsers</h2>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="card text-white bg-warning mb-3">
+            <div class="card-body">
+                <h5 class="card-title">Total Votes</h5>
+                <h2>@ViewBag.TotalVotes</h2>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row mt-4">
+    <div class="col-md-6">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Quick Actions</h5>
+                <a asp-action="Users" class="btn btn-primary btn-block mb-2">Manage Users</a>
+                <a asp-action="Questions" class="btn btn-primary btn-block">Manage Questions</a>
+            </div>
+        </div>
+    </div>
+</div>
